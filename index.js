@@ -1,4 +1,4 @@
-const imgData = fetch("allImg.json");
+const imgData = await fetch("allImg.json");
 
 function randint(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -15,8 +15,7 @@ function replaceAltText(imgElement) {
 }
 
 function replaceImgSrc(imgElement) {
-    let randomImg = imgData.key;
-    imgElement.src = randomImg[randint(0, randomImg.length)];
+    imgElement.src = imgData.key[randint(0, imgData.key.length)];
     return;
 }
 
