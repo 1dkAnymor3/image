@@ -1,5 +1,17 @@
+import imgData from "./allImg.json"
+
 function randint(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
+}
+
+function addHeaderToStringOfArray(saidArray, header)
+{
+    let modifiedArray = [];
+    for (let i = 0; i < saidArray.length; i++)
+    {
+        modifiedArray.push(header + saidArray[i]);
+    }
+    return modifiedArray;
 }
 
 function replaceAltText(imgElement) {
@@ -13,7 +25,7 @@ function replaceAltText(imgElement) {
 }
 
 function replaceImgSrc(imgElement) {
-    let randomImg = [ "img/even epic bg.png" ];
+    let randomImg = addHeaderToStringOfArray(imgData.key, "img/");
     imgElement.src = randomImg[randint(0, randomImg.length)];
     return;
 }
