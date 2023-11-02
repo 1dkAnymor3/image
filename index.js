@@ -1,4 +1,4 @@
-const imgData = await fetch("allImg.json");
+const imgData = fetch("allImg.json");
 
 function randint(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
