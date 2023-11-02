@@ -1,4 +1,4 @@
-const imgData = fetch("allImg.json");
+const imgData = fetch('./data.json').then((response) => response.json());
 
 function randint(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
