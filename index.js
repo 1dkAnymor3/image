@@ -1,11 +1,4 @@
-const fs = require("fs")
-var readJson = (path, cb) => {
-    fs.readFile(require.resolve(path), (err, data) => {
-        if (err) cb(err);
-        else cb(null, JSON.parse(data));
-    });
-};
-const imgData = readJson("./allImg.json", function(){})
+const imgData = fetch("allImg.json");
 
 function randint(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
