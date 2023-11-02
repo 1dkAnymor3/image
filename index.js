@@ -4,16 +4,6 @@ function randint(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
-function addHeaderToStringOfArray(saidArray, header)
-{
-    let modifiedArray = [];
-    for (let i = 0; i < saidArray.length; i++)
-    {
-        modifiedArray.push(header + saidArray[i]);
-    }
-    return modifiedArray;
-}
-
 function replaceAltText(imgElement) {
     let randomAlt = [
         "looks like your browser wont let you see the image",
@@ -25,7 +15,7 @@ function replaceAltText(imgElement) {
 }
 
 function replaceImgSrc(imgElement) {
-    let randomImg = addHeaderToStringOfArray(imgData.key, "img/");
+    let randomImg = imgData.key;
     imgElement.src = randomImg[randint(0, randomImg.length)];
     return;
 }

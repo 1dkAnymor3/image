@@ -8,6 +8,16 @@ function getFileNamesFromFolder(folderName)
     .map(item => item.name);
 }
 
+function addHeaderToStringOfArray(saidArray, header)
+{
+    let modifiedArray = [];
+    for (let i = 0; i < saidArray.length; i++)
+    {
+        modifiedArray.push(header + saidArray[i]);
+    }
+    return modifiedArray;
+}
+
 function writeJsonFile(jsonFileName, modifiedJson)
 {
     const fs = require("fs");
@@ -21,7 +31,7 @@ function writeJsonFile(jsonFileName, modifiedJson)
 const imgFolder = "./img/";
 const jsonFile = "./allImg.json";
 const saidJson = require(jsonFile);
-let imgFiles = getFileNamesFromFolder(imgFolder);
+let imgFiles = addHeaderToStringOfArray(getFileNamesFromFolder(imgFolder), "img/");
 
 saidJson.key = imgFiles;
     
