@@ -1,5 +1,3 @@
-const imgData = fetch('./data.json').then((response) => response.json());
-
 function randint(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
@@ -15,7 +13,9 @@ function replaceAltText(imgElement) {
 }
 
 function replaceImgSrc(imgElement) {
-    imgElement.src = imgData.key[randint(0, imgData.key.length)];
+    fetch("./allImg.json") // I sure do hope it doesnt get cache'd
+        .then((response) => response.json())
+        .then((json) => imgElement.src = json.key[randint(0, json.key.length)]);
     return;
 }
 
@@ -23,6 +23,5 @@ function main() {
     const node = document.getElementById("base");
     replaceAltText(node);
     replaceImgSrc(node);
-    console.log(localStorage)
     return;
 }
